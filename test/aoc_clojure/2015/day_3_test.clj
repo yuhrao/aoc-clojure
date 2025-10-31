@@ -1,17 +1,24 @@
 (ns aoc-clojure.2015.day-3-test
   (:require [clojure.test :as t]
-            [aoc-clojure.2015.day-3 :as sut]))
+            [aoc-clojure.2015.day-3 :as sut]
+            [matcher-combinators.test]))
 
-(t/deftest santa-visited-nodes-count
-  (t/are [input expected]
-         (t/is (= (sut/part-1 input) expected))
-    ">" 2
-    "^>v<" 4
-    "^v^v^v^v^v" 2))
+;; ============================================================================
+;; Part 1: Single Santa Tests
+;; ============================================================================
 
-(t/deftest multi-actors-visited-nodes-count
-  (t/are [input expected]
-         (t/is (= (sut/part-2 input) expected))
-    "^v" 3
-    "^>v<" 3
-    "^v^v^v^v^v" 11))
+(t/deftest single-santa-visited-houses-test
+  (t/testing "Counts unique houses visited by Santa"
+    (t/is (match? 2 (sut/part-1 ">")))
+    (t/is (match? 4 (sut/part-1 "^>v<")))
+    (t/is (match? 2 (sut/part-1 "^v^v^v^v^v")))))
+
+;; ============================================================================
+;; Part 2: Santa and Robo-Santa Tests
+;; ============================================================================
+
+(t/deftest santa-and-robo-santa-visited-houses-test
+  (t/testing "Counts unique houses visited by Santa and Robo-Santa"
+    (t/is (match? 3 (sut/part-2 "^v")))
+    (t/is (match? 3 (sut/part-2 "^>v<")))
+    (t/is (match? 11 (sut/part-2 "^v^v^v^v^v")))))
