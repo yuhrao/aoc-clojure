@@ -2,7 +2,7 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 
-(defn- read-input-file
+(defn- read-file
   "Read and parse an input file from the resources directory.
    
    Takes a resource path and returns the trimmed file contents as a string."
@@ -12,6 +12,9 @@
       slurp
       str/trim))
 
+(defn read-aoc-input-file [year day]
+  (read-file (format "%d/input-day-%d.txt" year day)))
+
 (defn execute-day
   "Execute both parts of an Advent of Code day puzzle.
    
@@ -19,8 +22,7 @@
    take the input string and return the solution. Runs both parts concurrently and
    prints the results. Returns a map with :part-1 and :part-2 result values."
   [{:keys [year day part-1 part-2]}]
-  (let [input-path (format "%d/input-day-%d.txt" year day)
-        input (read-input-file input-path)
+  (let [input (read-aoc-input-file year day)
         result-part-1 (future (part-1 input))
         result-part-2 (future (part-2 input))]
     (println "Advent of Code" year "- Day" day)
