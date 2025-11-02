@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]
             [buddy.core.hash :as hash]
             [buddy.core.codecs :refer [bytes->hex]]
-            [aoc-clojure.utils :as utils]))
+            [aoc-clojure.registry.core :as registry]))
 
 (defn str->md5-str
   [val]
@@ -25,9 +25,11 @@
   [input]
   (mine 6 input))
 
+(registry/register {:year 2015 :day 4 :part-1 part-1 :part-2 part-2})
+
 (defn execute
   []
-  (utils/execute-day {:year 2015 :day 4 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 4}))
 
 (comment
 

@@ -1,6 +1,6 @@
 (ns aoc-clojure.2015.day-5
   (:require
-   [aoc-clojure.utils :as utils]
+   [aoc-clojure.registry.core :as registry]
    [clojure.string :as str]))
 
 (def ^:private nice-string-v1-re #"^(?=(?:.*[aeiou]){3})(?=.*(.)\1)(?!.*(?:ab|cd|pq|xy)).*$")
@@ -42,10 +42,12 @@
        (filter true?)
        count))
 
+(registry/register {:year 2015 :day 5 :part-1 part-1 :part-2 part-2})
+
 (defn execute
   "Execute both parts of day 5 puzzle."
   []
-  (utils/execute-day {:year 2015 :day 5 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 5}))
 
 (comment
 

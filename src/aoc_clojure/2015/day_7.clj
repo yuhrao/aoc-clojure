@@ -1,6 +1,6 @@
 (ns aoc-clojure.2015.day-7
   (:require
-   [aoc-clojure.utils :as utils]
+   [aoc-clojure.registry.core :as registry]
    [clojure.string :as str]))
 
 (def ^:private raw-operator->operator {"AND" :and
@@ -111,8 +111,10 @@
         updated-graph (assoc-in graph ["b" :input] [(str initial-result)])]
     (get-node-value updated-graph "a")))
 
+(registry/register {:year 2015 :day 7 :part-1 part-1 :part-2 part-2})
+
 (defn execute []
-  (utils/execute-day {:year 2015 :day 7 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 7}))
 
 (comment
   (execute))

@@ -1,6 +1,6 @@
 (ns aoc-clojure.2015.day-6
   (:require
-   [aoc-clojure.utils :as utils]
+   [aoc-clojure.registry.core :as registry]
    [clojure.string :as str]
    [clojure.set :as set]))
 
@@ -76,9 +76,11 @@
          vals
          (apply +))))
 
+(registry/register {:year 2015 :day 6 :part-1 part-1 :part-2 part-2})
+
 (defn execute
   []
-  (utils/execute-day {:year 2015 :day 6 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 6}))
 
 (comment
 

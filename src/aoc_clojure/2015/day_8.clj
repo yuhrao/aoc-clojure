@@ -1,6 +1,6 @@
 (ns aoc-clojure.2015.day-8
   (:require
-   [aoc-clojure.utils :as utils]
+   [aoc-clojure.registry.core :as registry]
    [clojure.string :as str]))
 
 (defn in-memory-count [s]
@@ -37,8 +37,10 @@
          (mapcat (juxt encoded-count (comp (partial * -1) count)))
          (reduce +))))
 
+(registry/register {:year 2015 :day 8 :part-1 part-1 :part-2 part-2})
+
 (defn execute []
-  (utils/execute-day {:year 2015 :day 8 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 8}))
 
 (comment
   (execute))

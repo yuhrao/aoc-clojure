@@ -1,7 +1,7 @@
 (ns aoc-clojure.2015.day-3
   (:require
    [clojure.set :as set]
-   [aoc-clojure.utils :as utils]))
+   [aoc-clojure.registry.core :as registry]))
 
 (def ^:private santa-move-fns {\> (fn [[x y]]
                                     [(inc x) y])
@@ -48,9 +48,11 @@
         robot-santa-visits (future (execute-navigation robot-santa-move-fns robot-santa-moves))]
     (count (set/union @santa-visits @robot-santa-visits))))
 
+(registry/register {:year 2015 :day 3 :part-1 part-1 :part-2 part-2})
+
 (defn execute
   []
-  (utils/execute-day {:year 2015 :day 3 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 3}))
 
 (comment
 

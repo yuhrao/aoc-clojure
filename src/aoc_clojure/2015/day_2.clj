@@ -1,7 +1,7 @@
 (ns aoc-clojure.2015.day-2
   (:require
    [clojure.string :as str]
-   [aoc-clojure.utils :as utils]))
+   [aoc-clojure.registry.core :as registry]))
 
 (defn- calc-sides-area
   "Calculate the area of all three sides of a rectangular prism."
@@ -61,9 +61,11 @@
        (map calc-ribbon-length)
        (apply +)))
 
+(registry/register {:year 2015 :day 2 :part-1 part-1 :part-2 part-2})
+
 (defn execute
   []
-  (utils/execute-day {:year 2015 :day 2 :part-1 part-1 :part-2 part-2}))
+  (registry/execute-day {:year 2015 :day 2}))
 
 (comment
 
