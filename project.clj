@@ -5,6 +5,7 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.12.2"]
                  [buddy/buddy-core "1.11.423"]
+                 [metosin/malli "0.19.2"]
                  ;; TODO: Move this to an specific profile
                  [nubank/matcher-combinators "3.9.2"]]
   :main ^:skip-aot aoc-clojure.core
