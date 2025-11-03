@@ -10,5 +10,11 @@
                  [nubank/matcher-combinators "3.9.2"]]
   :main ^:skip-aot aoc-clojure.core
   :target-path "target/%s"
+  :aliases {"nrepl" ["run" "-m" "nrepl.cmdline" 
+                     "--port" "7888"
+                     "--bind" "127.0.0.1"]}
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}
+             :dev {:source-paths ["dev"]
+                   :dependencies [[nrepl/nrepl "1.5.1"]
+                                  [org.nrepl/incomplete "0.1.0"]]}})

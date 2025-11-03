@@ -1,8 +1,1 @@
-{:linters {:unresolved-symbol {:exclude [(malli.core/=>)]},
-           :type-mismatch {:namespaces {aoc-clojure.registry.core {register {:arities {1 {:args [{:op :keys,
-                                                                                                  :opt {:description :string},
-                                                                                                  :req {:year :int,
-                                                                                                        :day :int,
-                                                                                                        :part-1 :fn,
-                                                                                                        :part-2 :fn}}],
-                                                                                          :ret :any}}}}}}}}
+{:linters {:unresolved-symbol {:exclude [(malli.core/=>)]}}}
