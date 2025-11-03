@@ -4,13 +4,16 @@
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.12.2"]
+                 [org.clojure/data.json "2.5.0"]
                  [buddy/buddy-core "1.11.423"]
                  [metosin/malli "0.19.2"]
+                 [io.pedestal/pedestal.service "0.8.1"]
+                 [io.pedestal/pedestal.http-kit "0.8.1"]
                  ;; TODO: Move this to an specific profile
                  [nubank/matcher-combinators "3.9.2"]]
   :main ^:skip-aot aoc-clojure.core
   :target-path "target/%s"
-  :aliases {"nrepl" ["run" "-m" "nrepl.cmdline" 
+  :aliases {"nrepl" ["run" "-m" "nrepl.cmdline"
                      "--port" "7888"
                      "--bind" "127.0.0.1"]}
   :profiles {:uberjar {:aot :all

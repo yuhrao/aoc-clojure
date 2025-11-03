@@ -1,5 +1,8 @@
 (ns aoc-clojure.core
+  (:require [malli.instrument :as mi])
   (:gen-class))
+
+(mi/instrument!)
 
 (defn -main
   "Main entry point for the application.
